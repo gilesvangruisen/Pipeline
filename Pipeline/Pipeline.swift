@@ -17,3 +17,15 @@ public func --><In, Out>(left: In?, fn: (In) -> (Out?)) -> Out? {
     }
 
 }
+
+infix operator <-- { associativity right }
+
+public func <--<In, Out>(fn: (In) -> (Out?), right: In?) -> Out? {
+
+    if let arg = right {
+        return fn(arg)
+    } else {
+        return nil
+    }
+    
+}

@@ -12,6 +12,23 @@ import Pipeline
 
 class PipelineTests: XCTestCase {
     
+    func testForwardPipeline() {
+        let forwardPipe = 0 --> { $0 + 10 }
+
+        XCTAssert(forwardPipe == 10, "Basic forward pipe passed")
+    }
+
+    func testBackwardPipeline() {
+        let backwardPipe = { $0 + 10 } <-- 0
+
+        XCTAssert(backwardPipe == 10, "Basic backward pipe passed")
+    }
     
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measureBlock() {
+            // Put the code you want to measure the time of here.
+        }
+    }
     
 }
